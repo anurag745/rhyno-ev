@@ -6,7 +6,6 @@ import Contact from './routes/Contact.jsx'
 import Products from './routes/Products.jsx'
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
 
-
 function App() {
 
   return (

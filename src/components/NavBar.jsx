@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
-import "./NavbarStyles.css"
+import "./NavBarStyles.css"
 import { Link } from "react-router-dom"
 import { FaBars, FaTimes } from "react-icons/fa"
 import { useState } from 'react'
+import blacklogo from '../assets/blacklogo.png'
 
 const NavBar = () => {
     const [click, setClick] = useState(false)
@@ -29,18 +30,18 @@ const NavBar = () => {
     return (
         <div className={color ? "header header-bg" : "header"} >
             <Link to="/">
-                <h1>Portfolio</h1>
+                <img src={blacklogo} alt="Rhyno EV" className={click ? ('hidden-logo'):('visible-logo')}/>
             </Link>
             <ul className={click ? ('nav-menu active') : ('nav-menu')}>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/about">About</Link></li>
                 <li><Link to="/contact">Contact</Link></li>
-                <li><Link to="/projects">Projects</Link></li>
+                <li><Link to="/products">Products</Link></li>
             </ul>
             <div className="hamburger" onClick={handleClick}>
                 {click ? (
-                    <FaTimes size={25} style={{ color: "white" }} />) : (
-                    <FaBars size={25} style={{ color: "white" }} />)}
+                    <FaTimes size={25} style={{ color: "white !important" }} />) : (
+                    <FaBars size={25} style={{ color: "black" }} />)}
             </div>
         </div>
     )

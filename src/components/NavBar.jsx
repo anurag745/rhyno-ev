@@ -8,16 +8,18 @@ import blacklogo from '../assets/blacklogo.png'
 const NavBar = () => {
     const [click, setClick] = useState(false)
     const [color, setColor] = useState(false)
+    const [isProductHovered, setIsProductHovered] = useState(false);
 
     const handleClick = () => setClick(!click)
 
     const handleColor = () => {
-        if (window.scrollY >= 100) {
-            setColor(true)
-        } else {
-            setColor(false)
-        }
+    if (window.scrollY >= 100 || isProductHovered) {
+        setColor(true);
+    } else {
+        setColor(false);
     }
+};
+
 
     useEffect(() => {
         window.addEventListener('scroll', handleColor)
@@ -36,8 +38,19 @@ const NavBar = () => {
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/about">About</Link></li>
                 <li><Link to="/contact">Contact</Link></li>
-                <li><Link to="/products">Products</Link></li>
+                <li 
+                    onMouseEnter={() => setIsProductHovered(true)} 
+                    onMouseLeave={() => setIsProductHovered(false)}>
+                    <Link to="/products">Products</Link>
+                </li>
             </ul>
+            <div className='product-names'>
+                <ul>
+                    <li>Prodcut 1</li>
+                    <li>Product 2</li>
+                    <li>Product 3</li>
+                </ul>
+            </div>
             <div className="hamburger" onClick={handleClick}>
                 {click ? (
                     <FaTimes size={25} style={{ color: "white !important" }} />) : (

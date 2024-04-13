@@ -3,6 +3,7 @@
 }
 .nav-menu li{
     padding:0 2rem;
+    padding:10px;
 }
 .nav-menu li a{
     font-size:1.2rem;
@@ -27,13 +28,15 @@
     justify-content: center;
     align-items: center;
     gap: 30px;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.8);
     position: absolute;
     top: 0;
+    left: -10px;
     z-index: -5;
     transition: 0.5s;
+    margin:0;
 }
 
 .nav-menu.active li a {
@@ -55,4 +58,14 @@
 }
 .visible-logo{
     display:initial;
+}
+.nav-menu li:hover{
+    background-color:black;
+    border-radius:8px;
+    transition:color 1s;
+    cursor:pointer;
+}
+.nav-menu li a:hover{
+    color:white;
+    transition:color 0.6s;
 }
